@@ -1,0 +1,21 @@
+lenguaje utilizado: javascript 
+
+
+
+function esCorreoElectronico(cadena) {
+  // Patrón de expresión regular para verificar un correo electrónico
+  var patronCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Utilizar el método test() para verificar si la cadena coincide con el patrón
+  return patronCorreo.test(cadena);
+}
+
+// Solicitar al usuario que ingrese una cadena de texto
+var cadenaIngresada = prompt("Ingrese una cadena de texto: ");
+
+// Verificar si la cadena ingresada es un correo electrónico
+if (esCorreoElectronico(cadenaIngresada)) {
+  console.log("La cadena es un correo electrónico válido.");
+} else {
+  console.log("La cadena NO es un correo electrónico válido.");
+}
