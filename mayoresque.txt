@@ -1,0 +1,22 @@
+public class PotenciasFraccionales {
+
+    public static void main(String[] args) {
+        System.out.println("Potencias Fraccionales de Dos");
+        System.out.println("----------------------------");
+        System.out.printf("%-10s%-20s%-20s\n", "Fracción", "Decimal", "Decimal Redondeado");
+
+        double potencia = 1.0;
+
+        for (int i = 1; i <= 10; i++) {
+            potencia /= 2;
+            double redondeado = Math.round(potencia * 1000000.0) / 1000000.0; // Redondear a 6 decimales
+
+            System.out.printf("%-10s%-20f%-20f\n", formatFraction(i), potencia, redondeado);
+        }
+    }
+
+    // Método para formatear la fracción
+    private static String formatFraction(int exponente) {
+        return "1/" + (int) Math.pow(2, exponente);
+    }
+}

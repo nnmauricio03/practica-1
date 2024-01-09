@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class VerificarArregloConsecutivo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamaño del arreglo (n): ");
+        int n = scanner.nextInt();
+
+        int[][] arreglo = new int[n][n];
+
+        System.out.println("Ingrese los elementos del arreglo:");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arreglo[i][j] = scanner.nextInt();
+            }
+        }
+
+        boolean esConsecutivo = verificarConsecutivo(arreglo);
+
+        if (esConsecutivo) {
+            System.out.println("El arreglo está conformado por los números consecutivos desde 1 hasta " + (n * n) + ".");
+        } else {
+            System.out.println("El arreglo no está conformado por los números consecutivos desde 1 hasta " + (n * n) + ".");
+        }
+    }
+
+    private static boolean verificarConsecutivo(int[][] arreglo) {
+        int n = arreglo.length;
+        int valorEsperado = 1;
+
+        // Verificar cada elemento del arreglo
+        for (int i = 0

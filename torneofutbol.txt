@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+
+public class CampeonatoFutbol {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<String> equipos = new ArrayList<>();
+
+        // Ingresar los nombres de los 8 equipos
+        System.out.println("Ingrese los nombres de los 8 equipos:");
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Equipo " + (i + 1) + ": ");
+            equipos.add(scanner.nextLine());
+        }
+
+        // Proceso del campeonato
+        while (equipos.size() > 1) {
+            List<String> ganadores = new ArrayList<>();
+
+            for (int i = 0; i < equipos.size(); i += 2) {
+                System.out.println("Partido entre " + equipos.get(i) + " y " + equipos.get(i + 1));
+                System.out.print("Ingrese el ganador: ");
+                String ganador = scanner.nextLine();
+
+                // Verificar que el ganador sea uno de los dos equipos
+                if (!ganador.equals(equipos.get(i)) && !ganador.equals(equipos.get(i + 1))) {
+                    System.out.println("Nombre de equipo inválido. Por favor, ingrese uno de los dos equipos del partido.");
+                    i -= 2; // Rehacer este partido
+                    continue;
+                }
+
+                ganadores.add(ganador);
+            }
+
+            equipos = ganadores; // Actualizar la lista de equipos con los ganadores
+        }
+
+        // Anunciar al campeón
+        System.out.println("El campeón del torneo es: " + equipos.get(0));
+    }
+}

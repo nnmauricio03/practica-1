@@ -1,0 +1,13 @@
+
+
+
+let ar = [[1,2,3],[4,5,6],[7,8,9]];
+let result = ar.map((subArray, index) => [index * 3 + 14].concat(subArray));
+console.log(result);
+
+
+
+let ar = [[1,2,3],[4,5,6],[7,8,9]];
+let squared = ar.map(subArray => subArray.map(x => x ** 2));
+squared.push([64, 81, 100, 121]);
+squared = squared

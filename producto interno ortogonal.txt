@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class ProductoInternoYOrtogonalidad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Double> listaA = new ArrayList<>();
+        ArrayList<Double> listaB = new ArrayList<>();
+
+        System.out.println("Ingrese los elementos de la lista A (separados por espacio):");
+        String[] elementosA = scanner.nextLine().split(" ");
+        for (String elemento : elementosA) {
+            listaA.add(Double.parseDouble(elemento));
+        }
+
+        System.out.println("Ingrese los elementos de la lista B (separados por espacio):");
+        String[] elementosB = scanner.nextLine().split(" ");
+        for (String elemento : elementosB) {
+            listaB.add(Double.parseDouble(elemento));
+        }
+
+        if (listaA.size() != listaB.size()) {
+            System.out.println("Las listas deben tener la misma cantidad de elementos.");
+        } else {
+            double productoInterno = calcularProductoInterno(listaA, listaB);
+            System.out.println("El producto interno de las listas A y B es: " + productoInterno);
+            if (productoInterno == 0) {
+                System.out.println("Las listas A y B son ortogonales.");
+            } else {
+                System.out.println("Las listas A y B no son ortogonales.");
+            }
+        }
+    }
+
+    private static double calcularProductoInterno(ArrayList<Double> listaA, ArrayList<Double> listaB) {
+        double suma = 0;
+        for (int i = 0; i < listaA.size(); i++) {
+            suma += listaA.get(i) * listaB.get(i);
+        }
+        return suma;
+    }
+}

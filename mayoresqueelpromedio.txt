@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class DatosMayoresQuePromedio {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("¿Cuántos datos ingresará? ");
+        int cantidad = scanner.nextInt();
+
+        double[] datos = new double[cantidad];
+        double suma = 0;
+
+        // Ingresar datos
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Ingrese dato " + (i + 1) + ": ");
+            datos[i] = scanner.nextDouble();
+            suma += datos[i];
+        }
+
+        // Calcular promedio
+        double promedio = suma / cantidad;
+
+        // Contar datos mayores que el promedio
+        int contador = 0;
+        for (double dato : datos) {
+            if (dato > promedio) {
+                contador++;
+            }
+        }
+
+        // Mostrar resultado
+        System.out.println("Cantidad de datos mayores que el promedio: " + contador);
+    }
+}
